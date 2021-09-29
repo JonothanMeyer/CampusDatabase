@@ -5,7 +5,7 @@ class CreateTeachers < ActiveRecord::Migration[6.1]
       t.string :last_name
       t.integer :nine_hundred
       t.string :email
-      t.references :office, null: false, foreign_key: true
+      t.references :office, foreign_key: true
 
       t.timestamps
     end

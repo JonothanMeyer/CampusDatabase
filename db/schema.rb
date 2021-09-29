@@ -10,14 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_16_013518) do
+ActiveRecord::Schema.define(version: 2021_09_16_014503) do
+
+  create_table "offices", force: :cascade do |t|
+    t.string "building_name"
+    t.integer "floor_number"
+    t.integer "room_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "teachers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.integer "nine_hundred"
     t.string "email"
-    t.integer "office_id"
+    t.integer "office_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["office_id"], name: "index_teachers_on_office_id"

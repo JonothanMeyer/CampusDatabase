@@ -19,6 +19,8 @@ class OfficesController < ApplicationController
   def edit
   end
 
+  # GET /offices/1/destroy
+
   # POST /offices
   def create
     @office = Office.new(office_params)
