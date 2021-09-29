@@ -20,6 +20,10 @@ class OfficesController < ApplicationController
   end
 
   # GET /offices/1/destroy
+  def destroy
+    @office.destroy
+    redirect_to offices_url, notice: 'Office was successfully destroyed'
+    end
 
   # POST /offices
   def create
