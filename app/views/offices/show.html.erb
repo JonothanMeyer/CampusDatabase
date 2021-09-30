@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1>OFFICE INFO<h1>
+
 <p>
   <strong>Building:</strong>
   <%= @office.building_name %>
@@ -15,6 +17,7 @@
   <%= @office.room_number %>
 </p>
 
+<br>
 
 <%= link_to 'Edit', edit_office_path(@office) %> |
 <%= link_to 'Back', offices_path %>

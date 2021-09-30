@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1>PROFESSOR INFO<h1>
+
 <p>
   <strong>First name:</strong>
   <%= @teacher.first_name %>
@@ -24,6 +26,8 @@
   <strong>Office:</strong>
   <%= @teacher.office_id %>
 </p>
+
+<br>
 
 <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
 <%= link_to 'Back', teachers_path %>

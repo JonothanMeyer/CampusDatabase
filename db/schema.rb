@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_16_014503) do
+ActiveRecord::Schema.define(version: 2021_09_30_025105) do
+
+  create_table "courses", force: :cascade do |t|
+    t.string "prefix"
+    t.integer "number"
+    t.text "description"
+    t.integer "teacher_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["teacher_id"], name: "index_courses_on_teacher_id"
+  end
 
   create_table "offices", force: :cascade do |t|
     t.string "building_name"
@@ -18,6 +28,15 @@ ActiveRecord::Schema.define(version: 2021_09_16_014503) do
     t.integer "room_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.integer "year"
+    t.binary "semester"
+    t.integer "course_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_sections_on_course_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -31,5 +50,7 @@ ActiveRecord::Schema.define(version: 2021_09_16_014503) do
     t.index ["office_id"], name: "index_teachers_on_office_id"
   end
 
+  add_foreign_key "courses", "teachers"
+  add_foreign_key "sections", "courses"
   add_foreign_key "teachers", "offices"
 end
