@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @section.year %>
+</p>
+
+<p>
+  <strong>Semester:</strong>
+  <%= @section.semester %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @section.course.number %>
+</p>
+
+<%= link_to 'Edit', edit_section_path(@section) %> |
+<%= link_to 'Back', sections_path %>
