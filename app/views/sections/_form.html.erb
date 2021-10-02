@@ -16,11 +16,13 @@
     <%= form.number_field :year %>
   </div>
 
-  <div class="control-group">
-    <div class="controls">
-      <%= form.label :semester %>
-      <%= form.select(:semester, options_for_select(['Fall', 'Spring', 'Summer'])) %>
-    </div>
+  <div class="radio">
+    <%= form.radio_button :semester, "Fall" %>
+    <%= form.label :semester, "Fall" %>
+    <%= form.radio_button :semester, "Spring" %>
+    <%= form.label :semester, "Spring" %>
+    <%= form.radio_button :semester, "Summer" %>
+    <%= form.label :semester, "Summer" %>
   </div>
 
   <div class="field">

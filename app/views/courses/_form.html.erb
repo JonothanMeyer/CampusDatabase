@@ -15,7 +15,7 @@
   <div class="control-group">
     <div class="controls">
       <%= form.label :prefix %>
-      <%= form.select(:prefix, options_for_select(["MTH", "CS", "HIS", "PHI"])) %>
+      <%= form.select(:prefix, options_for_select(["MTH", "CS", "HIS", "PHI", "OTH"])) %>
     </div>
   </div>
 
@@ -33,9 +33,6 @@
     <%= form.label :teacher_id %>
     <%= form.collection_select :teacher_id, Teacher.all, :id, :full_teacher_name %>
   </div>
-
-
-
 
   <div class="actions">
     <%= form.submit %>
