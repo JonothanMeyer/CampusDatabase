@@ -1,7 +1,7 @@
 class Teacher < ApplicationRecord
   belongs_to :office
   has_many :courses
-  def teacher_name
-    "#{first_name.first}. #{last_name}"
+  def full_teacher_name
+    "#{first_name} #{last_name}"
   end
 end

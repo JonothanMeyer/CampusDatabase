@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sections</h1>
+<h1>MSU Denver Sections</h1>
 
 <table>
   <thead>
@@ -17,7 +17,7 @@
       <tr>
         <td><%= section.year %></td>
         <td><%= section.semester %></td>
-        <td><%= section.course.number %></td>
+        <td><%= section.course.prefix_and_number %></td>
         <td><%= link_to 'Show', section %></td>
         <td><%= link_to 'Edit', edit_section_path(section) %></td>
         <td><%= button_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>

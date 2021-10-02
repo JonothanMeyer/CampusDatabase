@@ -25,7 +25,7 @@
 
   <div class="field">
     <%= form.label :course_id %>
-    <%= form.collection_select :course_id, Course.all, :id, :number %>
+    <%= form.collection_select :course_id, Course.all, :id, :prefix_and_number %>
   </div>
 
   <div class="actions">

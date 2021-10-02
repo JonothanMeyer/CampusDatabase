@@ -31,8 +31,10 @@
 
   <div class="field">
     <%= form.label :teacher_id %>
-    <%= form.collection_select :teacher_id, Teacher.all, :id, :last_name %>
+    <%= form.collection_select :teacher_id, Teacher.all, :id, :full_teacher_name %>
   </div>
+
+
 
 
   <div class="actions">
