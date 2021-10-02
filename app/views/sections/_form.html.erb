@@ -11,10 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
+
+<div class="control-group">
+  <div class="controls">
     <%= form.label :year %>
-    <%= form.number_field :year %>
+    <%= form.select(:year, options_for_select([2019, 2020, 2021, 2022])) %>
   </div>
+</div>
 
   <div class="radio">
     <%= form.radio_button :semester, "Fall" %>
