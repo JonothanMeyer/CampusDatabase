@@ -4,4 +4,5 @@ class Teacher < ApplicationRecord
   def full_teacher_name
     "#{first_name} #{last_name}"
   end
+
 end

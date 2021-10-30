@@ -4,6 +4,7 @@ class TeachersController < ApplicationController
   # GET /teachers
   def index
     @teachers = Teacher.all
+    #@teachers = Teacher.search(params[:search])
   end
 
   # GET /teachers/1
@@ -17,6 +18,12 @@ class TeachersController < ApplicationController
 
   # GET /teachers/1/edit
   def edit
+  end
+
+  #Search teachers
+  def search
+    @teachers = Teacher.where("last_name like ?", "%#{params[:query]}%")
+    render :index
   end
 
   # POST /teachers

@@ -26,6 +26,12 @@
   </tbody>
 </table>
 
+<%= form_tag(search_sections_url, method: "get") do %>
+  <%= label_tag(:query, "Search by Section Year:") %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <br>
 
 <%= link_to 'New Section', new_section_path %> |

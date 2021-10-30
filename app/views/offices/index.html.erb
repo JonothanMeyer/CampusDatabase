@@ -26,6 +26,12 @@
   </tbody>
 </table>
 
+<%= form_tag(search_offices_url, method: "get") do %>
+  <%= label_tag(:query, "Search by Office Room Number:") %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <br>
 
 <%= link_to 'New Office', new_office_path %> |

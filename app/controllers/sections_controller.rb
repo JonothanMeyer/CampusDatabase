@@ -19,6 +19,12 @@ class SectionsController < ApplicationController
   def edit
   end
 
+  #Search sections
+  def search
+    @sections = Section.where("year like ?", "%#{params[:query]}%")
+    render :index
+  end
+
   # POST /sections
   def create
     @section = Section.new(section_params)

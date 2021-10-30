@@ -19,6 +19,12 @@ class OfficesController < ApplicationController
   def edit
   end
 
+  # Search Offices
+  def search
+    @offices = Office.where("room_number like ?", "%#{params[:query]}%")
+    render :index
+  end
+
   # GET /offices/1/destroy
   def destroy
     @office.destroy

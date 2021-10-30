@@ -19,6 +19,12 @@ class CoursesController < ApplicationController
   def edit
   end
 
+  # Search courses
+  def search
+    @courses = Course.where("description like ?", "%#{params[:query]}%")
+    render :index
+  end
+
   # POST /courses
   def create
     @course = Course.new(course_params)
