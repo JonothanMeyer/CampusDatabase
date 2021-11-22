@@ -27,29 +27,43 @@ class TeachersController < ApplicationController
   end
 
   # POST /teachers
+  # POST /teachers.json
   def create
     @teacher = Teacher.new(teacher_params)
 
-    if @teacher.save
-      redirect_to @teacher, notice: 'Teacher was successfully created.'
-    else
-      render :new
+    respond_to do |format|
+      if @teacher.save
+        format.html { redirect_to @teacher, notice: 'Teacher was successfully created.' }
+        format.json { render :show, status: :created, location: @teacher }
+      else
+        format.html { render :new }
+        format.json { render json: @teacher.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   # PATCH/PUT /teachers/1
+  # PATCH/PUT /teachers/1.json
   def update
-    if @teacher.update(teacher_params)
-      redirect_to @teacher, notice: 'Teacher was successfully updated.'
-    else
-      render :edit
+    respond_to do |format|
+      if @teacher.update(teacher_params)
+        format.html { redirect_to @teacher, notice: 'Teacher was successfully updated.' }
+        format.json { render :show, status: :ok, location: @teacher }
+      else
+        format.html { render :edit }
+        format.json { render json: @teacher.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  # DELETE /teachers/1
+  # DELETE /teacher/1
+  # DELETE /teacher/1.json
   def destroy
     @teacher.destroy
-    redirect_to teachers_url, notice: 'Teacher was successfully destroyed.'
+    respond_to do |format|
+      format.html { redirect_to teachers_url, notice: 'Teacher was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private

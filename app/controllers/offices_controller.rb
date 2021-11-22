@@ -35,26 +35,37 @@ class OfficesController < ApplicationController
   def create
     @office = Office.new(office_params)
 
-    if @office.save
-      redirect_to @office, notice: 'Office was successfully created.'
-    else
-      render :new
-    end
+    respond_to do |format|
+      if @office.save
+        format.html { redirect_to @office, notice: 'Office was successfully created.' }
+        format.json { render :show, status: :created, location: @office }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+	      format.json { render json: @office.errors, status: :unprocessable_entity }
+      end
+    end  
   end
 
   # PATCH/PUT /offices/1
   def update
-    if @office.update(office_params)
-      redirect_to @office, notice: 'Office was successfully updated.'
-    else
-      render :edit
+    respond_to do |format|
+      if @office.update(office_params)
+        format.html { redirect_to @office, notice: 'Office was successfully updated.' }
+        format.json { render :show, status: :ok, location: @office }
+      else
+        format.html { render :edit }
+        format.json { render json: @car.errors, status: :unprocessable_entity}
+      end
     end
   end
 
   # DELETE /offices/1
   def destroy
     @office.destroy
-    redirect_to offices_url, notice: 'Office was successfully destroyed.'
+    respond_to do |format|
+      format.html { redirect_to offices_url, notice: 'Office was successfully destroyed' }
+      format.json { head :no_content}
+    end
   end
 
   private
