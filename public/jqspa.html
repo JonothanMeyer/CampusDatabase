@@ -8,8 +8,10 @@
 </head>
 <body>
 
-<button onclick="fetch('students', ['name', 'advisor_id'])">Students</button>
-<button onclick="fetch('advisors', ['name'])">Advisors</button>
+<button onclick="fetch('teachers', ['first_name', 'last_name', 'nine_hundred', 'email', 'office_id'])">Teachers</button>
+<button onclick="fetch('offices', ['floor_number', 'office_location'] )">Offices</button>
+<button onclick="fetch('courses', ['prefix', 'number', 'description', 'teacher_id'] )">Courses</button>
+<button onclick="fetch('sections', ['year', 'semester', 'course_id'] )">Sections</button>
 
 <div id="list">
 </div>
